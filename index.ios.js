@@ -14,7 +14,14 @@ import React, {
 
 import AwesomeProject from'./components/AwesomeProject';
 
-class IOSAwesomeProject extends AwesomeProject {
+class IOSAwesomeProject extends Component {
+  render() {
+    return(
+      <View style={{flex: 1}}>
+        <AwesomeProject />
+      </View>
+    )
+  }
 }
 
 AppRegistry.registerComponent('AwesomeProject', () => IOSAwesomeProject);

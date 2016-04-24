@@ -26,5 +26,9 @@ export default StyleSheet.create({
   },
   year: {
     textAlign: 'center',
+  },
+  toolbar: {
+    height: 56,
+    backgroundColor: '#FF0',
   }
 });
