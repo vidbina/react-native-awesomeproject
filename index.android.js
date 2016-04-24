@@ -8,12 +8,12 @@ import React, {
   Component,
   Image,
   ListView,
-  StyleSheet,
   Text,
   View
 } from 'react-native';
 
 import MoviesSource from './movies';
+import BasicStyle from './styles/basic';
 
 class AwesomeProject extends Component {
   constructor(props) {
@@ -52,7 +52,7 @@ class AwesomeProject extends Component {
       <ListView
         dataSource={this.state.dataSource}
         renderRow={this.renderMovie}
-        style={styles.listView}
+        style={BasicStyle.listView}
         />
     );
   }
@@ -60,7 +60,7 @@ class AwesomeProject extends Component {
   renderLoadingView() {
     console.log("This is odd");
     return (
-      <View style={styles.container}>
+      <View style={BasicStyle.container}>
         <Text>
           Loading movies
         </Text>
@@ -70,44 +70,17 @@ class AwesomeProject extends Component {
 
   renderMovie(movie) {
     return (
-      <View style={styles.container}>
+      <View style={BasicStyle.container}>
         <Image
           source={{uri: movie.posters.thumbnail}}
-          style={styles.thumbnail} />
-        <View style={styles.rightContainer}>
-          <Text style={styles.title}>{movie.title}</Text>
-          <Text style={styles.year}>{movie.year}</Text>
+          style={BasicStyle.thumbnail} />
+        <View style={BasicStyle.rightContainer}>
+          <Text style={BasicStyle.title}>{movie.title}</Text>
+          <Text style={BasicStyle.year}>{movie.year}</Text>
         </View>
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  rightContainer: {
-    //backgroundColor: '#F00',
-    flex: 1,
-  },
-  thumbnail: {
-    width: 53,
-    height: 81,
-    backgroundColor: '#0F0',
-  },
-  title: {
-    fontSize: 20,
-    marginBottom: 8,
-    textAlign: 'center',
-  },
-  year: {
-    textAlign: 'center',
-  }
-});
 
 AppRegistry.registerComponent('AwesomeProject', () => AwesomeProject);
