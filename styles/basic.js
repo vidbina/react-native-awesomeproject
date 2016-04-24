@@ -32,10 +32,16 @@ export default StyleSheet.create({
     textAlign: 'center',
   },
   toolbar: {
+		flex: 1,
     height: 56,
     backgroundColor: colors.topBar,
   },
   navigator: {
-    flex: 1
+		top: 0,
+    flex: 1,
+  },
+  navigatorPadding: {
+		top: 64,
+		flex: 1,
   }
 });

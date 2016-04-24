@@ -22,6 +22,7 @@ class IOSAwesomeProject extends Component {
       <NavigatorIOS
         initialRoute={{component: AwesomeProject, title: 'AwesomeProject'}}
         style={BasicStyle.navigator}
+        itemWrapperStyle={BasicStyle.navigatorPadding}
         barTintColor={colors.topBar}
       />
     )
