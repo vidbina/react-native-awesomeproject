@@ -3,8 +3,6 @@
  * https://github.com/facebook/react-native
  */
 
-var REQUEST_URL = 'https://raw.githubusercontent.com/facebook/react-native/master/docs/MoviesExample.json';
-
 import React, {
   AppRegistry,
   Component,
@@ -14,6 +12,8 @@ import React, {
   Text,
   View
 } from 'react-native';
+
+import MoviesSource from './movies';
 
 class AwesomeProject extends Component {
   constructor(props) {
@@ -27,19 +27,20 @@ class AwesomeProject extends Component {
   }
 
   componentDidMount() {
+    console.log("mounted");
     this.fetchData();
   }
 
   fetchData() {
-    fetch(REQUEST_URL)
-      .then((response) => response.json())
-      .then((responseData) => {
-        this.setState({
-          dataSource: this.state.dataSource.cloneWithRows(responseData.movies),
-          loaded: true,
-        });
-      })
-      .done();
+    console.log("loading...");
+    console.log(MoviesSource);
+    (new MoviesSource()).fetchData((data) => {
+      console.log("here goes");
+      this.setState({
+        dataSource: this.state.dataSource.cloneWithRows(data.movies),
+        loaded: true,
+      });
+    });
   }
 
   render() {
@@ -57,7 +58,7 @@ class AwesomeProject extends Component {
   }
 
   renderLoadingView() {
-    console.log("This is weird");
+    console.log("This is odd");
     return (
       <View style={styles.container}>
         <Text>
