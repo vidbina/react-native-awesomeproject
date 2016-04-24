@@ -7,19 +7,23 @@
 import React, {
   AppRegistry,
   Component,
+  NavigatorIOS,
   StyleSheet,
   Text,
   View
 } from 'react-native';
 
 import AwesomeProject from'./components/AwesomeProject';
+import BasicStyle, {colors} from './styles/basic';
 
 class IOSAwesomeProject extends Component {
   render() {
     return(
-      <View style={{flex: 1}}>
-        <AwesomeProject />
-      </View>
+      <NavigatorIOS
+        initialRoute={{component: AwesomeProject, title: 'AwesomeProject'}}
+        style={BasicStyle.navigator}
+        barTintColor={colors.topBar}
+      />
     )
   }
 }

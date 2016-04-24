@@ -2,6 +2,10 @@ import {
   StyleSheet
 } from 'react-native';
 
+export const colors = {
+  topBar: '#FF0',
+}
+
 export default StyleSheet.create({
   container: {
     flex: 1,
@@ -29,6 +33,9 @@ export default StyleSheet.create({
   },
   toolbar: {
     height: 56,
-    backgroundColor: '#FF0',
+    backgroundColor: colors.topBar,
+  },
+  navigator: {
+    flex: 1
   }
 });
